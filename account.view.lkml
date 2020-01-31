@@ -14,9 +14,16 @@ view: account {
   }
 
   dimension: config {
+    hidden:  yes
     type: string
     sql: ${TABLE}."config" ;;
   }
+
+  dimension: url {
+    type: yesno
+    sql: config#>'{account_details,user_essentials,companyWebsiteUrl}'
+  }
+
 
   dimension_group: created {
     type: time
