@@ -9,6 +9,7 @@ view: event {
   }
 
   dimension: account_id {
+    hidden: yes
     type: number
     sql: ${TABLE}."account_id" ;;
   }
@@ -267,6 +268,7 @@ view: event {
   measure: unique_vistors {
     type: count_distinct
     sql: ${visitor_id} ;;
+    drill_fields: [event_name,unique_vistors]
   }
 
 }

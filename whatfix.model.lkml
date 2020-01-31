@@ -19,4 +19,9 @@ include: "*.view.lkml"
 #   }
 # }
 
-explore: event {}
+explore: event {
+  join: account {
+    sql_on: ${event.account_id} = ${account.account_id} ;;
+    relationship: many_to_one
+  }
+}
