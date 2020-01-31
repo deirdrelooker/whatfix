@@ -9,6 +9,7 @@ view: event {
   }
 
   dimension: account_id {
+    hidden: yes
     type: number
     sql: ${TABLE}."account_id" ;;
   }
@@ -254,8 +255,20 @@ view: event {
     sql: ${TABLE}."visitor_id" ;;
   }
 
+  dimension: is_chrome {
+    type: yesno
+    sql: ${user_agent} LIKE 'chrome' ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, event_name]
   }
+
+  measure: unique_vistors {
+    type: count_distinct
+    sql: ${visitor_id} ;;
+    drill_fields: [event_name,unique_vistors]
+  }
+
 }
