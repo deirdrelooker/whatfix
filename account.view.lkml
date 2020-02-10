@@ -20,8 +20,8 @@ view: account {
   }
 
   dimension: url {
-    type: yesno
-    sql: config#>'{account_details,user_essentials,companyWebsiteUrl}'
+    type: string
+    sql: config#>'{account_details,user_essentials,companyWebsiteUrl}';;
   }
 
 
