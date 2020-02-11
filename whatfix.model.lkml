@@ -24,4 +24,9 @@ explore: event {
     sql_on: ${event.account_id} = ${account.account_id} ;;
     relationship: many_to_one
   }
+  cancel_grouping_fields: [account.old_config,account.config]
+}
+
+explore: account {
+  cancel_grouping_fields: [account.old_config,account.config]
 }
